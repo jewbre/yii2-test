@@ -1,31 +1,21 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Vilim Stubièan
- * Date: 22.9.2015.
- * Time: 22:17
- */
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-use app\models\Status;
+
+
+/* @var $this yii\web\View */
+/* @var $model app\models\Status */
+
+$this->title = 'Create Status';
+$this->params['breadcrumbs'][] = ['label' => 'Statuses', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
 ?>
+<div class="status-create">
 
-<?php
-    $form = ActiveForm::begin();
-?>
-    <?= $form->field($model, "text")->
-        textarea(array("rows" => 4, "placeholder" => 'testna vrijednost'))->
-        label("Status update");?>
+    <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $form->field($model, "permissions")->
-        dropDownList( (new Status())->getPermissions(), array("prompt" => "select your value"))->
-        label("Permissions");
-    ?>
+    <?= $this->render('_form', [
+        'model' => $model,
+    ]) ?>
 
-    <div class="form-group">
-        <?= Html::submitButton("Submit", array('class' => "btn btn-primaty"));?>
-    </div>
-
-<?php
-    ActiveForm::end(); ?>
+</div>
